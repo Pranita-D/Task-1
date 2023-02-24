@@ -20,4 +20,6 @@ for filename in os.listdir(directory):
     if os.path.isfile(file_path) and (current_time - os.path.getmtime(file_path)) > max_age:
         # Delete the file using curl command
         subprocess.call(['curl', '-X', 'DELETE', 'https://localhost:8080/files/' + filename]))
+        # Delete the file
+        os.remove(file_path)
         
